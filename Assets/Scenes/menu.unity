@@ -219,7 +219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &379180637
 RectTransform:
   m_ObjectHideFlags: 0
@@ -403,6 +403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ee2372b4762644fba9017f3b96a115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveData:
+    Scores: []
   Name: 
   Score: 0
 --- !u!4 &589841347
@@ -537,6 +539,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameInputField: {fileID: 2008302891}
+  firstPlaceText: {fileID: 1134244855}
+  secondPlaceText: {fileID: 1440581502}
+  thirdPlaceText: {fileID: 379180638}
 --- !u!1 &914329077
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,7 +920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1134244854
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1182,7 +1187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1440581501
 RectTransform:
   m_ObjectHideFlags: 0
