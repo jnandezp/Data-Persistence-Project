@@ -6,6 +6,8 @@ using System.IO;
 public class GameManager : MonoBehaviour
 {
    public static GameManager Instance;
+   public ListScores saveData = new ListScores();
+   
    public string Name;
    public int Score;
    private int maxScores = 3;
@@ -19,24 +21,21 @@ public class GameManager : MonoBehaviour
       }
       Instance = this;
       DontDestroyOnLoad(gameObject);
-      
       GameManager.Instance.LoadScore();
    }
 
    [System.Serializable]
-   class ItemScore
+   public class ItemScore
    {
       public string Name;
       public int Score;
    }
    
    [System.Serializable]
-   class ListScores
+   public class ListScores
    {
       public List<ItemScore> Scores = new List<ItemScore>(); // Lista de puntajes
    }
-   
-   private ListScores saveData = new ListScores();
 
    public void SaveScore()
    {
@@ -62,12 +61,6 @@ public class GameManager : MonoBehaviour
       {
          string json = File.ReadAllText(path);
          saveData  = JsonUtility.FromJson<ListScores>(json);
-         
-         // Mostrar los puntajes cargados
-         foreach (var score in saveData.Scores)
-         {
-            Debug.Log($"Jugador: {score.Name}, Puntuación: {score.Score}");
-         }
       }
    }
    

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,18 +14,35 @@ public class MenuUIHandler : MonoBehaviour
     public TMP_Text firstPlaceText;
     public TMP_Text secondPlaceText;
     public TMP_Text thirdPlaceText;
-    
+
+    private void Awake()
+    {
+        // Mostrar los puntajes cargados
+        for (int i = 0; i < GameManager.Instance.saveData.Scores.Count; i++)
+        {
+            Debug.Log("Score Item: " + GameManager.Instance.saveData.Scores[i].Name + " Score: " + GameManager.Instance.saveData.Scores[i].Score);
+            switch (i)
+            {
+                case 0:
+                    firstPlaceText.text = GameManager.Instance.saveData.Scores[i].Name + ": " + GameManager.Instance.saveData.Scores[i].Score;
+                    firstPlaceText.gameObject.SetActive(true);
+                    break;
+                case 1:
+                    secondPlaceText.text = GameManager.Instance.saveData.Scores[i].Name + ": " + GameManager.Instance.saveData.Scores[i].Score;
+                    secondPlaceText.gameObject.SetActive(true);
+                    break;
+                case 2:
+                    thirdPlaceText.text = GameManager.Instance.saveData.Scores[i].Name + ": " + GameManager.Instance.saveData.Scores[i].Score;
+                    thirdPlaceText.gameObject.SetActive(true);
+                    break;
+            }
+        }
+    }
+
     public void StartNewGame()
     {
         GameManager.Instance.Name = nameInputField.text;
         GameManager.Instance.Score = 0;
-        
-        /*GameManager.Instance.LoadScore();
-        // Mostrar los puntajes cargados
-        foreach (var score in GameManager.Instance.saveData.Scores)
-        {
-            Debug.Log($"Jugador: {score.Name}, Puntuación: {score.Score}");
-        }*/
         
         SceneManager.LoadScene(1);
     }
